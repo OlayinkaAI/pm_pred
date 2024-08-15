@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permanent Magnet Temperature Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #008080; /* Teal background */
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #333; /* Dark color for text */
+            font-weight: bold; /* Bold text */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px; /* Reduced gap between columns */
+        }
+        label {
+            margin-bottom: 5px;
+            font-weight: bold; /* Bold labels */
+            color: black; /* Black color for labels */
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 8px; /* Reduced padding to adjust size */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow effect on input fields */
+        }
+        input[type="submit"] {
+            grid-column: span 2; /* Make the submit button span both columns */
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold; /* Bold submit button text */
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Predicted Permanent Magnet Temperature</h1>
+        <form action="/predict" method="POST">
+            <div class="grid">
+                <div>
+                    <label for="u_q">U_Q:</label>
+                    <input type="text" name="u_q" id="u_q" required>
+                </div>
+                <div>
+                    <label for="coolant">Coolant:</label>
+                    <input type="text" name="coolant" id="coolant" required>
+                </div>
+                <div>
+                    <label for="stator_winding">Stator Winding:</label>
+                    <input type="text" name="stator_winding" id="stator_winding" required>
+                </div>
+                <div>
+                    <label for="u_d">U_D:</label>
+                    <input type="text" name="u_d" id="u_d" required>
+                </div>
+                <div>
+                    <label for="stator_tooth">Stator Tooth:</label>
+                    <input type="text" name="stator_tooth" id="stator_tooth" required>
+                </div>
+                <div>
+                    <label for="motor_speed">Motor Speed:</label>
+                    <input type="text" name="motor_speed" id="motor_speed" required>
+                </div>
+                <div>
+                    <label for="i_d">I_D:</label>
+                    <input type="text" name="i_d" id="i_d" required>
+                </div>
+                <div>
+                    <label for="i_q">I_Q:</label>
+                    <input type="text" name="i_q" id="i_q" required>
+                </div>
+                <div>
+                    <label for="stator_yoke">Stator Yoke:</label>
+                    <input type="text" name="stator_yoke" id="stator_yoke" required>
+                </div>
+                <div>
+                    <label for="ambient">Ambient:</label>
+                    <input type="text" name="ambient" id="ambient" required>
+                </div>
+                <div>
+                    <label for="torque">Torque:</label>
+                    <input type="text" name="torque" id="torque" required>
+                </div>
+            </div>
+            <input type="submit" value="Predict Temperature">
+        </form>
+    </div>
+</body>
+</html>
